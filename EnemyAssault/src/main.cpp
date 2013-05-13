@@ -2,15 +2,13 @@
 #include <GL\GL.h>
 #include <GL\GLU.h>
 #include <stdio.h>
+#include "ScreenPt.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int SCREEN_FPS = 60;
 
-void SetPixel(int x, int y)
-{
-	glVertex2i(x, y);
-}
+ScreenPt newScreenPt;
 
 bool InitGL()
 {
@@ -37,9 +35,12 @@ void Render()
 
 	glColor3f(1.0, 0.0, 0.0);
 
-	glBegin(GL_POINTS);
-		glVertex2i(180, 15);
-		glVertex2i(10, 145);
+	glBegin(GL_LINE_LOOP);
+		/*SetPixel(50, 100);
+		SetPixel(75, 150);
+		SetPixel(300, 200);
+		SetPixel(200, 100);*/
+		//CircleMidpoint(400, 400, 100);
 	glEnd();
 
 	glutSwapBuffers();
