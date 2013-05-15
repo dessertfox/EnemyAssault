@@ -3,12 +3,19 @@
 #include <GL\GLU.h>
 #include <stdio.h>
 #include "ScreenPt.h"
+#include "Player.h"
+#include "Object.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int SCREEN_FPS = 60;
 
+bool quit = false;
+
 ScreenPt newScreenPt;
+Player player(100, 100, 50, 50);
+Player player2(400, 400, 100, 100);
+Object background(0, 0, SCREEN_WIDTH, 1);
 
 bool InitGL()
 {
@@ -43,6 +50,10 @@ void Render()
 		//CircleMidpoint(400, 400, 100);
 	glEnd();
 
+	background.Render();
+	player.Render();
+	player2.Render();
+
 	glutSwapBuffers();
 }
 
@@ -67,6 +78,13 @@ int main(int argc, char *args[])
 	glutDisplayFunc(Render);
 	glutTimerFunc(1000 / SCREEN_FPS, RunMainLoop, 0);
 	glutMainLoop();
+
+	glutKeyboardFunc(handleKeys);
+
+	while(!quit)
+	{
+		player.PlayerController(INPUT_KEYBOARD);
+	}
 
 	return 0;
 }

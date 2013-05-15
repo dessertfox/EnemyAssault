@@ -3,8 +3,8 @@
 
 Sprite::Sprite(void)
 {
-	x = 0;
-	y = 0;
+	xPos = 0;
+	yPos = 0;
 	xVel = 0;
 	yVel = 0;
 	xAccel = 0;
@@ -15,20 +15,20 @@ Sprite::~Sprite(void)
 {
 }
 
-Sprite::Sprite(GLint x, GLint y, GLint xVel, GLint yVel, GLint xAccel, GLint yAccel)
+Sprite::Sprite(GLint xPos, GLint yPos, GLint xVel, GLint yVel, GLint xAccel, GLint yAccel)
 {
-	this->x = x;
-	this->x = y;
+	this->xPos = xPos;
+	this->xPos = yPos;
 	this->xVel = xVel;
 	this->yVel = yVel;
 	this->xAccel = xAccel;
 	this->yAccel = yAccel;
 }
 
-void Sprite::SetPosition(GLint x, GLint y)
+void Sprite::SetPosition(GLint xPos, GLint yPos)
 {
-	this->x = x;
-	this->y = y;
+	this->xPos = xPos;
+	this->yPos = yPos;
 }
 
 void Sprite::SetVel(std::string axis, GLint vel)

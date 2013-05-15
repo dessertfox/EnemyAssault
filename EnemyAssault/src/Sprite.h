@@ -11,13 +11,12 @@ public:
 	Sprite(void);
 	~Sprite(void);
 
-	Sprite(GLint x, GLint y, GLint xVel, GLint yVel, GLint xAccel, GLint yAccel);
-	void SetPosition(GLint x, GLint y);
+	Sprite(GLint xPos, GLint yPos, GLint xVel, GLint yVel, GLint xAccel, GLint yAccel);
+	void SetPosition(GLint xPos, GLint yPos);
 	void SetVel(std::string axis, GLint vel);
 	void SetAccel(std::string axis, GLint accel);
 	virtual void Render();
 
-private:
-	GLint x, y, xVel, yVel, xAccel, yAccel;
+	GLint xPos, yPos, xVel, yVel, xAccel, yAccel, width, height;
 };
 

@@ -72,12 +72,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Object.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Point2D.cpp" />
     <ClCompile Include="..\src\ScreenPt.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Object.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\Point2D.h" />
     <ClInclude Include="..\src\ScreenPt.h" />
