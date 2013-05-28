@@ -20,18 +20,25 @@ Object::Object(GLint xPos, GLint yPos, GLint width, GLint height)
 
 void Object::Render()
 {
-	GLint offset = 10;
+	GLint offset = 30;
 	glColor3f(0.0f, 0.0f, 1.0f);
 
-	for(int i = 0; i < 60; i++)
+	for(int i = 0; i < 27; i++)
 	{
-		for(int j = 0; j < 80; j++)
+		for(int j = 0; j < 20; j++)
 		{
-			glBegin(GL_LINE_LOOP);
-				glVertex2i(xPos + (width) + (offset * i), yPos + (height) + (offset * j));
-				glVertex2i(xPos + (width) + (offset * i), yPos - (height) + (offset * j));
-				glVertex2i(xPos - (width) + (offset * i), yPos - (height) + (offset * j));
-				glVertex2i(xPos - (width) + (offset * i), yPos + (height) + (offset * j));
+			//Vertical Lines
+			glBegin(GL_LINES);
+				glVertex2i(xPos + (offset * i), yPos + (offset * j));
+				glVertex2i(xPos + 800, yPos + (offset * j));
+				//glVertex2i(800 + (offset * i), yPos + (offset * j));
+			glEnd();
+
+			//Horizontal Lines
+			glBegin(GL_LINES);
+				glVertex2i(xPos + (offset * i), yPos + (offset * j));
+				glVertex2i(xPos + (offset * i), yPos + 600);
+				//glVertex2i(xPos + (offset * i), 600 + (offset * j));
 			glEnd();
 		}
 	}

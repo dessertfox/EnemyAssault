@@ -9,6 +9,5 @@ public:
 
 	Player(GLint xPos, GLint yPos, GLint width, GLint height);
 	void Render();
-	void handleKeys(unsigned char key, int x, int y);
 };
 

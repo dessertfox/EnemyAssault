@@ -1,5 +1,7 @@
 #include "Player.h"
 
+int SCREEN_WIDTH = 800;
+int SCREEN_HEIGHT = 600;
 
 Player::Player(void)
 {
@@ -28,24 +30,4 @@ void Player::Render()
 		glVertex2i(xPos - (width / 2), yPos - (height / 2));
 		glVertex2i(xPos - (width / 2), yPos + (height / 2));
 	glEnd();
-}
-
-void handleKeys(unsigned char key, int x, int y )
-{
-	if(key == GLUT_KEY_UP)
-	{
-		glTranslatef(0.0f, 1.0f, 0.0f);
-	}
-	else if(key == GLUT_KEY_DOWN)
-	{
-		glTranslatef(0.0f, -1.0f, 0.0f);
-	}
-	else if(key == GLUT_KEY_LEFT)
-	{
-		glTranslatef(-1.0f, 0.0f, 0.0f);
-	}
-	else if(key == GLUT_KEY_RIGHT)
-	{
-		glTranslatef(1.0f, 0.0f, 0.0f);
-	}
 }
