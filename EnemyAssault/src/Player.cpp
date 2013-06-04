@@ -31,3 +31,18 @@ void Player::Render()
 		glVertex2i(xPos - (width / 2), yPos + (height / 2));
 	glEnd();
 }
+
+void Player::Controller(SDL_keysym *keysym)
+{
+	switch(keysym->sym)
+	{
+		case SDLK_UP: Player::yPos += 10;
+		break;
+		case SDLK_DOWN: Player::yPos -= 10;
+		break;
+		case SDLK_LEFT: Player::xPos -= 10;
+		break;
+		case SDLK_RIGHT: Player::xPos += 10;
+		break;
+	}
+}

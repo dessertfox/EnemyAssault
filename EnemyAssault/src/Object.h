@@ -1,5 +1,6 @@
 #pragma once
 #include "sprite.h"
+
 class Object : public Sprite
 {
 public:
@@ -7,6 +8,9 @@ public:
 	~Object(void);
 
 	Object(GLint xPos, GLint yPos, GLint width, GLint height);
-	void Render();
+	void Render(GLint pointsX[], GLint pointsY[]);
+
+	GLint pointsArrayX[3];
+	GLint pointsArrayY[3];
 };
 

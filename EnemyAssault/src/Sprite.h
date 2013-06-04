@@ -1,8 +1,7 @@
 #pragma once
 
-#include <GL\freeglut.h>
-#include <gl\GL.h>
-#include <gl\GLU.h>
+#include <SDL.h>
+#include <SDL_opengl.h>
 #include <string>
 
 class Sprite
