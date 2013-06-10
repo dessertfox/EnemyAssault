@@ -29,6 +29,8 @@ GLint powerUpPointsY[3];
 GLint randomObjectPointsX[4];
 GLint randomObjectPointsY[4];
 
+SDL_Event event;
+
 void RunMainLoop(int val);
 void update();
 
@@ -72,14 +74,14 @@ bool InitGL()
 	return true;
 }
 
-void HandleKeydown(SDL_keysym *keysym)
-{
-	switch(keysym->sym)
-	{
-		case SDLK_ESCAPE: quit = true;
-		break;
-	}
-}
+//void HandleKeydown(SDL_keysym *keysym)
+//{
+//	switch(keysym->sym)
+//	{
+//		case SDLK_ESCAPE: quit = true;
+//		break;
+//	}
+//}
 
 //void SpecialKeys(int key, int x, int y)
 //{
@@ -124,17 +126,48 @@ void HandleKeydown(SDL_keysym *keysym)
 
 static void ProcessEvents()
 {
-	SDL_Event event;
-
-	while(SDL_PollEvent(&event))
+	switch(event.type)
 	{
-		switch(event.type)
-		{
-			case SDL_KEYDOWN: HandleKeydown(&event.key.keysym);
+		case SDL_KEYDOWN: 
+			switch(event.key.keysym.sym)
+			{
+				case SDLK_UP:
+					player.yVel = 1.0;
+					break;
+				case SDLK_DOWN:
+					player.yVel = -1.0;
+					break;
+				case SDLK_LEFT:
+					player.xVel = -1.0;
+					break;
+				case SDLK_RIGHT:
+					player.xVel = 1.0;
+					break;
+				case SDLK_ESCAPE:
+					quit = true;
+					break;
+			}
 			break;
-			case SDL_QUIT: quit = true;
+		case SDL_KEYUP:
+			switch(event.key.keysym.sym)
+			{
+				case SDLK_UP:
+					player.yVel = 0;
+					break;
+				case SDLK_DOWN:
+					player.yVel = 0;
+					break;
+				case SDLK_LEFT:
+					player.xVel = 0;
+					break;
+				case SDLK_RIGHT:
+					player.xVel = 0;
+					break;
+			}
 			break;
-		}
+		case SDL_QUIT: 
+			quit = true;
+			break;
 	}
 }
 
@@ -243,32 +276,15 @@ void update()
 
 	ScreenConstraint(player);
 
-	if(upPressed)
-	{
-		player.yPos += 1.0f;
-	}
-	if(downPressed)
-	{
-		player.yPos -= 1.0f;
-	}
-	if(leftPressed)
-	{
-		player.xPos -= 1.0f;
-	}
-	if(rightPressed)
-	{
-		player.xPos += 1.0f;
-	}
+	player.yPos += player.yVel;
+	player.xPos += player.xVel;
 	
 	//background.yPos -= 1.0;
-
-	//glutPostRedisplay();
 }
 
 int main(int argc, char *args[])
 {
 	const SDL_VideoInfo *info = NULL;
-	SDL_Event keyEvent;
 
 	int flags = 0;
 
@@ -307,11 +323,11 @@ int main(int argc, char *args[])
 
 	while(!quit)
 	{
-		ProcessEvents();
+		update();
 		Render();
-		while(SDL_PollEvent(&keyEvent))
+		while(SDL_PollEvent(&event))
 		{
-			player.Controller(&keyEvent.key.keysym);
+			ProcessEvents();
 		}
 	}
 
