@@ -1,14 +1,23 @@
 #pragma once
-#include "sprite.h"
 
-class Player : public Sprite
+#include "macros.h"
+#include "GameObject.h"
+#include <typeinfo>
+
+class Player : public GameObject
 {
 public:
 	Player(void);
 	~Player(void);
 
-	Player(GLint xPos, GLint yPos, GLint width, GLint height);
+	Player(Vector2f position);
+
 	void Render();
-	void Controller(SDL_keysym *keysym);
+	bool singleBool (GameObject* value);
+	void Update();
+	void Transform();
+	void Shoot();
+
+	Vector2f translate;
 };
 

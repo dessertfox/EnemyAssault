@@ -18,36 +18,42 @@
     <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Point2D.cpp">
+    <ClCompile Include="..\src\SceneGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Sprite.cpp">
+    <ClCompile Include="..\src\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ScreenPt.cpp">
+    <ClCompile Include="..\src\ModelFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Object.cpp">
+    <ClCompile Include="..\src\InputHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Point2D.h">
+    <ClInclude Include="..\src\macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Sprite.h">
+    <ClInclude Include="..\src\SceneGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ScreenPt.h">
+    <ClInclude Include="..\src\ModelFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Object.h">
+    <ClInclude Include="..\src\Vector2f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
